@@ -1,9 +1,35 @@
-<html>
+<!doctype html>
+<html class="no-js">
   <head>
-  <title>...</title>
+  <title>starsApp</title>
+
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width">
+
+   <!-- favicon-->
+
+   <!-- botstrap css-->
+   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+   <!-- custom css-->
+
+   <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+
+   <!-- Loard JS Libraries-->
+   <script src="bower_components/jquery/dist/jquery.min.js"></script>   <!--checked and working properly-->
+   <script src="bower_components/angular/angular.min.js"></script>      <!--checked and working properly-->
+   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>  <!--checked and working properly-->
+   <script type="text/javascript" src="scripts/app.js"></script>
 
   </head>
+
   <body>
-       <h1>This is the body</h1>
+     <div ng-app="" class="jumbotron text-center">
+       <p>Username:<input type="text" name="username" ng-model="name"></p>
+       <p>Password:<input type="Password" name="Password" ng-model="pass"></p>
+       <p>{{name}}</p><br>
+       <p>{{pass}}</p><br>
+     </div>
+     
   </body>
 </html>

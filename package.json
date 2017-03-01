@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/IPRCeast/starsApp/issues"
   },
-  "homepage": "https://github.com/IPRCeast/starsApp#readme"
+  "homepage": "https://github.com/IPRCeast/starsApp#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
 }
