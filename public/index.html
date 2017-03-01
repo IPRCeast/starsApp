@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="starsApp">
   <head>
   <title>starsApp</title>
 
@@ -19,17 +19,20 @@
    <script src="bower_components/jquery/dist/jquery.min.js"></script>   <!--checked and working properly-->
    <script src="bower_components/angular/angular.min.js"></script>      <!--checked and working properly-->
    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>  <!--checked and working properly-->
-   <script type="text/javascript" src="scripts/app.js"></script>
+   <script src="bower_components/angular-route/angular-route.min.js"></script>
+   <script src="scripts/app.js"></script>
 
   </head>
 
   <body>
-     <div ng-app="" class="jumbotron text-center">
+     <div class="jumbotron text-center">
        <p>Username:<input type="text" name="username" ng-model="name"></p>
        <p>Password:<input type="Password" name="Password" ng-model="pass"></p>
        <p>{{name}}</p><br>
        <p>{{pass}}</p><br>
-     </div>
-     
+     </div> 
+
+                                     <div ng-view></div>
+
   </body>
 </html>
