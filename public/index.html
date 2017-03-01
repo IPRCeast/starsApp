@@ -1,5 +1,8 @@
 <!doctype html>
-<html class="no-js" ng-app="starsApp">
+
+<!--DEFINE ANGULA APP-->
+
+<html ng-app="starsApp">
   <head>
   <title>starsApp</title>
 
@@ -8,8 +11,9 @@
 
    <!-- favicon-->
 
-   <!-- botstrap css-->
+   <!-- botstrap && font awesome CSS -->
    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/font-awesome.min.css">
 
    <!-- custom css-->
 
@@ -24,15 +28,44 @@
 
   </head>
 
-  <body>
+  <body ng-controller="mainCtrl">
+
+      <!--HEADER && NAVBAR-->
+
+      <header>
+        <nav class="navbar navbar-default">
+        <div class="container">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="/">starsApp</a>
+        </div>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/Home"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="#/about"><i class="fa fa-shield"></i>About</a></li>
+                 <li><a href="#/Contact">Contact</a></li>
+              </ul>
+        </div>
+      </nav>
+      </header>
+
+
+<!--
      <div class="jumbotron text-center">
        <p>Username:<input type="text" name="username" ng-model="name"></p>
        <p>Password:<input type="Password" name="Password" ng-model="pass"></p>
        <p>{{name}}</p><br>
        <p>{{pass}}</p><br>
-     </div> 
+     </div> -->
 
-                                     <div ng-view></div>
+     <!--MAIN CONTENT && INJECTED VIEWS-->
 
-  </body>
+     <div id="main">
+{{message}}
+       <!--ANGULAR TEMPLATING-->
+       <!--THIS IS WHERE CONTENT WILL BE INJECTED-->
+
+     <div ng-view></div>
+
+     </div>
+                                 
+</body>
 </html>
