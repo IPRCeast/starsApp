@@ -1,0 +1,81 @@
+<!--Creating a Login form-->
+<div class="container" id="loginForm">
+<div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+<!--Adding login-form to the panel-->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Login</h3>
+  </div>
+  <div class="panel-body">
+  <form class="form-default" name="loginForm" id="login-form" novalidate> 
+
+
+<div class="form-group">
+<label for="username" class="control-label">Email Address</label>
+
+<div class="input-group">
+    <div class="input-group-addon">
+        <i class="fa fa-user fa-fw"></i>
+    </div>
+    <input type="email" 
+      class="form-control" 
+      id="email" 
+      placeholder="email or username" 
+      name="email"
+      ng-model="email"
+      required
+      ng-minlength="7"
+      ng-maxlength="35"
+
+      />
+</div>
+</div>
+<!--Test ng-messages for email Validation-->
+<div class="help-block" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched">
+    <p ng-message="minlength" style="color: red">Your Email Address is too short.</p>
+    <p ng-message="maxlength" style="color: red">Your Email Address is too long.</p>
+    <p ng-message="required" style="color: red">Your Email Address is required.</p>
+    <p ng-message="email" style="color: red">Your Email Address is Invalid.</p>
+</div>
+<div class="form-group">
+ <label for="password" class="control-label">Password</label>
+<div class="input-group">
+<div class="input-group-addon">
+    <i class="fa fa-key fa-fw"></i>
+</div>  
+<input type="password" 
+ class="form-control"
+ name="password" 
+ ng-model="password"
+ id="password" 
+ placeholder="Password" 
+ required
+ minlength="5"
+ maxlength="10"
+ />
+</div>
+</div>
+<!--Test ng-messages for password field validation=============================-->
+
+<div class="help-block" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
+    <p ng-message="minlength" style="color: red">Your Password is too short.</p>
+    <p ng-message="maxlength" style="color: red">Your Password is too long.</p>
+    <p ng-message="required" style="color: red">Your Password is required.</p>
+
+</div>
+
+<button type="submit" class="btn btn-success btn-sm btn-block" ng-disabled="loginForm.$invalid">Sign In</button>   <br><br>
+<p style="text-align: center;">New User?<a ui-sref="signUp">Sign Up</a> &nbsp; Forgot Password?<a ui-sref="passwordRecovery">Recover Here</a>&nbsp;  </p>   
+                
+</form>
+
+</div>
+</div>
+<!--panel ends here-->
+
+    </div>
+</div></div>
+
+
+   

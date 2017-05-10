@@ -1,0 +1,112 @@
+
+
+<!--Creating a Login form-->
+
+<div class="row" id="signUpForm" style="margin-top: 70px;">
+    <div class="col-xs-6 col-xs-offset-3">
+ 
+
+<!--Adding login-form to the panel-->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Create Account</h3>
+  </div>
+  <div class="panel-body">
+  <form class="form-default" name="createAccountForm" id="login-form"> 
+
+
+<div class="form-group">
+<label for="username" class="control-label">Email Address</label>
+
+<div class="input-group">
+    <div class="input-group-addon">
+        <i class="fa fa-user fa-fw"></i>
+    </div>
+    <input type="email" 
+      class="form-control" 
+      id="email" 
+      placeholder="email or username" 
+      name="email"
+      ng-model="email"
+      required
+      />
+</div>
+</div>
+<!--Test ng-messages for email Validation-->
+<div class="help-block" ng-messages="createAccountForm.email.$error" ng-if="createAccountForm.email.$touched">
+    <p ng-message="minlength" style="color: red">Your Email Address is too short.</p>
+    <p ng-message="maxlength" style="color: red">Your Email Address is too long.</p>
+    <p ng-message="required" style="color: red">Your Email Address is required.</p>
+    <p ng-message="email" style="color: red">Your Email Address is Invalid.</p>
+</div>
+<!--Adding span show user experience after div form-group
+<span ng-show="lcreateAccountForm.email.$dirty && createAccountForm.email.$error.required"><h6 style="color: red">Email Address is required</h6></span>
+<span ng-show="createAccountForm.email.$dirty && createAccountForm.email.$error.email"><h6 style="color: red">Not a Valid Email Address</h6></span>-->
+
+
+
+<div class="form-group">
+ <label for="password" class="control-label">Password</label>
+<div class="input-group">
+<div class="input-group-addon">
+    <i class="fa fa-key fa-fw"></i>
+</div>  
+<input type="password" 
+ class="form-control"
+ name="password" 
+ ng-model="password"
+ id="password" 
+ placeholder="Password" 
+ required
+ ng-minlength="5"
+ ng-maxlength="10"
+ />
+</div>
+</div>
+<!--Test ng-messages for password field validation=============================-->
+
+<div class="help-block" ng-messages="createAccountForm.password.$error" ng-if="createAccountForm.password.$touched">
+    <p ng-message="minlength" style="color: red">Your Password is too short.</p>
+    <p ng-message="maxlength" style="color: red">Your Password is too long.</p>
+    <p ng-message="required" style="color: red">Your Password is required.</p>
+
+</div>
+<!--Create Confirm Password Fiel-->
+<div class="form-group">
+ <label for="password" class="control-label">Confirm Password</label>
+<div class="input-group">
+<div class="input-group-addon">
+    <i class="fa fa-key fa-fw"></i>
+</div>  
+<input type="password" 
+ class="form-control"
+ name="confirmPassword" 
+ ng-model="confirmPassword"
+ id="password" 
+ placeholder="Confirm Password" 
+ required
+ ng-minlength="5"
+ ng-maxlength="10"
+ />
+</div>
+</div>
+<!--Test ng-messages for ConfirmPassword field validation=============================-->
+
+<div class="help-block" ng-messages="createAccountForm.password.$error" ng-if="createAccountForm.confirmPassword.$touched">
+    <p ng-message="minlength" style="color: red">Your Password is too short.</p>
+    <p ng-message="maxlength" style="color: red">Your Password is too long.</p>
+    <p ng-message="required" style="color: red">Your Password is required.</p>
+</div>
+<button type="submit" class="btn btn-success btn-sm btn-block" ng-disabled="createAccountForm.$invalid">Sign In</button>   <br><br>
+<p>Need help?<a ui-sref="formCreateAccount">Contact Us</a>    </p>   
+                
+</form>
+
+</div>
+</div>
+<!--panel ends here-->
+
+    </div>
+</div>
+
+   

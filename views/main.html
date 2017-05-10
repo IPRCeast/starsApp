@@ -1,0 +1,319 @@
+
+<!--Adding Application Form-->
+
+   <div class="col-xs-12">
+   <div class="panel panel-success">
+   <div class="panel-heading">
+       <h3 class="panel-title">Application Form</h3>
+   </div>
+<div class="panel-body">
+<hr><h5>Personal Information</h5><hr>
+    <form class="form-inline" ng-submit="save(firstname,middlename,lastname)">
+    <!--Adding First Name Field-->
+    <div class="form-group">
+    <label class="control-label" for="InputFirstName">First Name*</label>
+   &nbsp; <input type="text" class="form-control" ng-model="lastname" id="InputFirstName" placeholder="Your First Name">
+    </div>
+    <!--Adding Middle Name Field-->
+    <div class="form-group">
+    <label class="control-label" for="InputMiddleName">&nbsp;&nbsp;Middle Name</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="middlename" id="InputMiddleName" placeholder="Your Middle Name">
+    </div>
+    <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="InputLastName">&nbsp;&nbsp;Last Name* &nbsp;</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="firstname" id="InputLastName" placeholder="Your Last Name">
+    </div> 
+    <p>
+      <!--Adding National ID Field-->
+    <div class="form-group">
+    <label for="nationalId">National ID* &nbsp;</label>
+    <input type="text" class="form-control" ng-model="nationalId" id="nationalId" placeholder="Your ID">
+    </div>
+    <!--Adding Email Address Field-->
+    <div class="form-group">
+    <label for="emaiAddress">&nbsp;&nbsp;Email Address* &nbsp;</label>
+    <input type="text" class="form-control" ng-model="emaiAddress" id="emaiAddress" placeholder="Your Email Addess" required>
+    </div>
+    <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="mobilePhone">&nbsp;&nbsp;Mobile Phone* &nbsp;</label>
+    &nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="mobilePhone" id="mobilePhone" placeholder="Your Mobile Phone">
+    </div> 
+    </p>
+    <div class="form-group">
+    <label for="dateOfBirth">DoB* &nbsp;</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="dateOfBirth" id="dateOfBirth" placeholder="Date Of Birth">
+    </div>
+    <!--Adding Middle Name Field-->
+    <div class="form-group">
+    <label for="placeOfBirth">&nbsp;&nbsp;PoB &nbsp;</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="placeOfBirth" id="placeOfBirth" placeholder="Place Of Birth">
+    </div>
+    <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="nationality">&nbsp;&nbsp;Nationality* &nbsp;</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="nationality" id="nationality" placeholder="Nationality">
+    </div> 
+    <p>
+      <!--Adding Gender Field-->
+  <div class="form-group">
+  <label class="control-label" for="gender">Gender</label>
+  <div class="controls">
+    <label class="radio inline" for="gender-0">
+      <input name="gender" id="gender-0" value="Male" checked="checked" type="radio">
+      Male
+    </label>
+    <label class="radio inline" for="gender-1">
+      <input name="gender" id="gender-1" value="Female" type="radio">
+      Female
+    </label>
+  </div>
+</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--Adding Gender Field-->
+  <div class="form-group">
+  <label class="control-label" for="civilStatus">Civil Status</label>
+  <div class="controls">
+    <label class="radio inline" for="civilStatus-0">
+      <input name="civilStatus" id="civilStatus-0" value="married" checked="checked" type="radio">
+      Married
+    </label>
+    <label class="radio inline" for="civilStatus-1">
+      <input name="civilStatus" id="civilStatus-1" value="signle" type="radio">
+    Single
+    </label>
+  </div>
+</div></p><hr><h5>Parent's Infos</h5><hr>
+    <!--Adding Futher's Full Name Field-->
+    <p>
+    <div class="form-group">
+    <label for="futherFullName">&nbsp;Futher's Full Name* &nbsp;</label>
+    <input type="text" class="form-control" ng-model="futherFullName" id="futherFullName" placeholder="Your Futher's Full Name">
+    </div>
+     <!--Adding National ID Field-->
+    <div class="form-group">
+    <label for="nationalId">National ID* &nbsp;</label>
+    <input type="text" class="form-control" ng-model="nationalId" id="nationalId" placeholder="Your ID">
+    </div>
+        <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="mobilePhone">Mobile Phone* &nbsp;</label>
+    &nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="mobilePhone" id="mobilePhone" placeholder="Mobile Phone">
+    </div> </p>
+    <!--Adding Mather's Full Name Field-->
+    <p>
+<div class="form-group">
+    <label for="matherFullName">Mather's Full Name* &nbsp;</label>
+    <input type="text" class="form-control" ng-model="matherFullName" id="matherFullName" placeholder="Your Mather's Full Name">
+    </div>
+     <!--Adding National ID Field-->
+    <div class="form-group">
+    <label for="nationalId">National ID* &nbsp;</label>
+    <input type="text" class="form-control" ng-model="nationalId" id="nationalId" placeholder="Your ID">
+    </div>
+    <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="mobilePhone">Mobile Phone* &nbsp;</label>
+    &nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="mobilePhone" id="mobilePhone" placeholder="Mobile Phone">
+    </div>
+  </p>
+<p>
+    <!--Adding Guardian Full Name Field-->
+<div class="form-group">
+    <label for="matherFullName">Guardian Full Name* &nbsp;</label>
+    <input type="text" class="form-control" ng-model="matherFullName" id="matherFullName" placeholder="Your Guardian Full Name">
+    </div>
+   <!--Adding National ID Field-->
+    <div class="form-group">
+    <label for="nationalId">National ID* &nbsp;</label>
+    <input type="text" class="form-control" ng-model="nationalId" id="nationalId" placeholder="Your ID">
+    </div>
+    <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="mobilePhone">Mobile Phone* &nbsp;</label>
+    &nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="mobilePhone" id="mobilePhone" placeholder="Mobile Phone">
+    </div>
+    </p> <hr><h5>Home Address</h5><hr>
+    <p>
+    <!--Adding Guardian Full Name Field-->
+<div class="form-group">
+    <label for="matherFullName">District* &nbsp;</label>
+    <input type="text" class="form-control" ng-model="matherFullName" id="matherFullName" placeholder="Your Guardian Full Name">
+    </div>
+   <!--Adding National ID Field-->
+    <div class="form-group">
+    <label for="nationalId">Sector* &nbsp;</label>
+    <input type="text" class="form-control" ng-model="nationalId" id="nationalId" placeholder="Your ID">
+    </div>
+    <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="mobilePhone">Cell* &nbsp;</label>
+    &nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="mobilePhone" id="mobilePhone" placeholder="Mobile Phone">
+    </div>
+    <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="mobilePhone">Village* &nbsp;</label>
+    &nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="mobilePhone" id="mobilePhone" placeholder="Mobile Phone">
+    </div>
+    </p>
+    <hr><h5>Academic Background</h5><hr>
+    <p>
+    <!--Adding Guardian Full Name Field-->
+<div class="form-group">
+    <label for="matherFullName">Last School Attended* &nbsp;</label>
+    <input type="text" class="form-control" ng-model="matherFullName" id="matherFullName" placeholder="Your Guardian Full Name">
+    </div>
+   <!--Adding National ID Field-->
+    <div class="form-group">
+    <label for="nationalId">Period(Year)* &nbsp;&nbsp;&nbsp;</label>
+    <input type="text" class="form-control" ng-model="nationalId" id="nationalId" placeholder="Your ID">
+    </div>
+    <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="mobilePhone">&nbsp;Combination/Department*&nbsp;</label>
+    &nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="mobilePhone" id="mobilePhone" placeholder="Mobile Phone">
+    </div>
+    </p>
+    <p>
+    <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="mobilePhone">Grade Obtained* &nbsp;</label>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="mobilePhone" id="mobilePhone" placeholder="Mobile Phone">
+    </div>
+    <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="mobilePhone">&nbsp;&nbsp;Agregate* &nbsp;</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="mobilePhone" id="mobilePhone" placeholder="Mobile Phone">
+    </div>
+    <!--Adding Last Name Field-->
+    <div class="form-group">
+    <label for="mobilePhone">&nbsp;Examination Authority*</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" ng-model="mobilePhone" id="mobilePhone" placeholder="Mobile Phone">
+    </div>
+    </p>
+    <div class="panel panel-success">
+  <div class="panel-heading"><strong>SECTION 6:</strong> Work Experience</div>
+  <div class="panel-body" style="padding: 2%">
+<table class="table table-condensed">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Organization</th>
+      <th>Nature of Job</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="org in personalInfo.orgs">
+      <td>
+        <!-- editable username (text with validation) -->
+        <span editable-text="org.name" e-name="name" e-form="rowform" e-required>
+          {{ org.name || 'empty' }}
+        </span>
+      </td>
+      <td>
+        <!-- editable status (select-local) -->
+        <span editable-text="org.description" e-name="description" e-form="rowform" e-required>
+          {{ org.description || 'empty' }}
+        </span>
+      </td>
+
+
+
+      <td>
+        <!-- editable status (select-local) -->
+        <span editable-text="org.start" e-name="start" e-form="rowform" e-pattern="\d{2}/\d{2}/\d{4}" e-title="start" e-placeholder="dd/mm/yyyy" e-required>
+          {{ (org.start | date) || 'empty' }}
+        </span>
+      </td>
+
+      <td>
+        <!-- editable status (select-local) -->
+        <span editable-text="org.end" e-name="end" e-form="rowform" e-pattern="\d{2}/\d{2}/\d{4}" e-title="end" e-placeholder="dd/mm/yyyy" e-required>
+          {{ (org.end | date) || 'empty' }}
+        </span>
+      </td>
+
+      <td style="white-space: nowrap">
+<!-- form -->
+
+<div class="buttons" ng-show="!rowform.$visible">
+
+  <button type="button" class="btn btn-danger" ng-click="removeOrg($index)">del</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+
+<button type="button" ng-show="editableForm.$visible" class="btn btn-default" ng-click="addOrg()">Add Another Job</button>
+</div>
+</div>
+    <!--test Angular xeditable row-->
+    <div class="panel panel-success">
+  <div class="panel-heading"><strong>SECTION 7:</strong> Refferees</div>
+  <div class="panel-body" style="padding: 2%">
+<table class="table table-condensed">
+  <thead class="inverse">
+    <tr>
+
+      <th>Name</th>
+      <th>Occupation</th>
+
+      <th>Telephone</th>
+      <th>Email</th>
+
+    </tr>
+  </thead>
+  <tr ng-repeat="ref in personalInfo.refs">
+    <td>
+      <!-- editable username (text with validation) -->
+      <span editable-text="ref.name" e-name="name" e-form="rowform">
+          {{ ref.name || 'empty' }}
+        </span>
+    </td>
+    <td>
+      <!-- editable status (select-local) -->
+      <span editable-text="ref.occupation" e-name="occupation" e-form="rowform">
+          {{ ref.occupation || 'empty' }}
+        </span>
+    </td>
+
+
+
+    <td>
+      <!-- editable status (select-local) -->
+      <span editable-number="ref.tel" e-name="tel" e-form="rowform">
+          {{ ref.tel || 'empty' }}
+        </span>
+    </td>
+
+    <td>
+      <!-- editable status (select-local) -->
+      <span editable-email="ref.email" e-name="email" e-form="rowform">
+          {{ ref.email || 'empty' }}
+        </span>
+    </td>
+
+    <td style="white-space: nowrap">
+<!-- form -->
+
+<div class="buttons" ng-show="!rowform.$visible">
+
+  <button type="button" class="btn btn-danger" ng-click="removeRef($index)">del</button>
+</div>
+</td>
+</tr>
+</table>
+
+<button ng-show="editableForm.$visible" type="button" class="btn btn-default" ng-click="addRef()">Add Another Refferee</button>
+</div>
+</div>
+    <!--test xeditable ends here-->
+    <button type="submit" class="btn btn-success">Save</button>
+    </form>
+
+  </div>
+    </div>
+    </div>

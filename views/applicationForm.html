@@ -1,0 +1,386 @@
+<div class="container-fluid">
+<form editable-form name="editableForm" onbeforesave="validateApplication()" onaftersave="submitApplication()" shown="true">
+<div class="row">
+
+<div class="col-md-8" ng-if="personalInfo.createdAt">
+  <div class="header">
+    <h3><i class="fa fa-tasks"></i> Continue Student Application</h3>
+  </div>
+
+</div>
+<div class="col-md-8" ng-if="!personalInfo.createdAt">
+  <div class="header">
+    <h3><i class="fa fa-tasks"></i> Start New Student Application</h3>
+  </div>
+
+</div>
+  <div class="col-xs-4">
+    <!-- button to show form -->
+    <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+        Edit
+      </button>
+    <!-- buttons to submit / cancel form -->
+    <span ng-show="editableForm.$visible">
+        <button type="submit" class="btn btn-success" ng-disabled="editableForm.$waiting">
+          Submit
+        </button>
+ 
+        <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+          Cancel
+        </button>
+      </span>
+  </div>
+
+
+</div>
+<footer>Complete the IPRC East new student application below. Complete all six sections and fillout all required fields.<cite ng-if="personalInfo.createdAt"
+    title="Source Title"> <caption >Original Application Created: {{personalInfo.createdAt | date}}</caption></cite></footer>
+
+<br>
+
+
+
+<div class="alert alert-danger" ng-show="applicationErrorMsg">
+  <strong>Wait your not done!</strong> {{applicationErrorMsg}}.
+</div>
+<div class="alert alert-success" ng-show="applicationStatusMsg">
+  <strong>Great!</strong> {{applicationStatusMsg}}.
+</div>
+
+ 
+
+<div class="panel panel-success">
+
+  <div class="panel-heading">
+
+    <div><strong>SECTION 1:</strong> Contact Information </div>
+
+  </div>
+
+  <div class="panel-body">
+
+    <p> Please fill out your Contact Details</p>
+
+
+
+  
+
+      
+ <div class="col-xs-3">Other Names:<span editable-text="personalInfo.other">{{ personalInfo.other || 'incomplete' }}</span></div>
+        <div class="col-xs-3">Telephone:<span editable-tel="personalInfo.tel" e-placeholder="07x-xxx-xxxx" e-required>{{ personalInfo.tel || 'incomplete' }}</span> </div>
+
+      
+
+
+
+    
+
+       <div class="col-xs-6">Your Village: <span editable-text="personalInfo.address"  e-style="width: 200%" e-required e-uib-typeahead="address as address.Village + ' in (' + address.District + ',' + address.Sector + ',' + address.Cellule + ')' for address in rwandaData | filter: {Village: $viewValue} | orderBy: Code_Vill | limitTo:20"
+
+            e-required>
+
+    {{ personalInfo.address.Village || 'None Selected' }}, in {{personalInfo.address.District}}, {{personalInfo.address.Sector}}, {{personalInfo.address.Cellule}},  </span>
+
+        </div>
+
+     
+
+
+  </div>
+ 
+
+</div>
+
+<div class="panel panel-success">
+  <div class="panel-heading"><strong>SECTION 2:</strong> Study Choices</div>
+  <div class="panel-body" style="padding-left: 5%">
+
+<div ng-show="!editableForm.$visible" ng-repeat="item in personalInfo.choice">
+  <div class="btn btn-primary">{{item.choice}} <span class="badge">{{personalInfo.choice.indexOf(item)+1}}</span></div>
+</div>
+
+
+
+<p ng-show="editableForm.$visible"> Drag your academic choices to selections and put them in order of importance.</p>
+<div sv-root ng-show="editableForm.$visible">
+  <div class=" col-xs-6" sv-part="personalInfo.choice">
+    <label>Selection(s)</label>
+    <div ng-repeat="item in personalInfo.choice" sv-element>
+      <div class="btn btn-primary">{{item.choice}} <span class="badge">{{personalInfo.choice.indexOf(item)+1}}</span></div>
+    </div>
+  </div>
+
+  <div class="col-xs-6" sv-part="personalInfo.deptlist">
+    <label>Academic List</label>
+    <div ng-repeat="item in personalInfo.deptlist" sv-element>
+      <div class="btn btn-default">{{item.choice}}</div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+
+    <div><strong>SECTION 3:</strong> Personal Information </div>
+
+
+  </div>
+  <div class="panel-body">
+    <p> Please fill out your personal information</p>
+ 
+
+
+        <div class="col-xs-6">Gender: <span editable-radiolist="personalInfo.gender" e-ng-options="s.value as s.text for s in genders" e-required>
+    {{ showGender() }}</span></div>
+ <div class="col-xs-6">Marital Status:<span editable-radiolist="personalInfo.maritalStatus" e-ng-options="s.value as s.text for s in mStatuses"
+            e-required>
+    {{ showStatus() }}
+  </span>
+        </div>
+       
+     
+ 
+        
+
+        <div class="col-xs-6">Nationality: <span editable-text="personalInfo.nationality" e-required e-uib-typeahead="country.name for country in countries | filter:$viewValue | limitTo:8"
+            e-required>
+    {{ personalInfo.nationality || 'None Selected' }} </span>
+        </div>
+         <div class="col-xs-6">Issued at: <span editable-text="personalInfo.issued" e-required>{{ personalInfo.issued || 'incomplete' }}</span>
+        </div>
+      
+  
+
+   
+        <div class="col-xs-6">Place of Birth: <span editable-text="personalInfo.POB" e-required>{{ personalInfo.POB || 'incomplete' }}</span></div>
+
+        <div class="col-xs-6">Date of Birth: <span editable-tel="personalInfo.DOB" e-pattern="\d{2}/\d{2}/\d{4}" e-title="DOB" e-placeholder="dd/mm/yyyy" e-required>
+    {{ personalInfo.DOB || 'incomplete' }}
+  </span>
+ 
+        </div>
+      
+   </div>
+
+</div>
+
+
+
+<div class="panel panel-success">
+  <div class="panel-heading"><strong>SECTION 4:</strong> Parents and Gardians</div>
+  <div class="panel-body">
+    <p> Please fill out your personal information</p>
+  
+
+  
+      <div class="col-md-4">Father's Name: <span editable-text="personalInfo.father.name" e-required>{{ personalInfo.father.name || 'incomplete' }}</span></div>
+      <div class="col-xs-4">Mother's Name: <span editable-text="personalInfo.mother.name" e-required>{{ personalInfo.mother.name || 'incomplete' }}</span></div>
+      <div class="col-xs-4">Guardian's' Name: <span editable-text="personalInfo.guardian.name">{{ personalInfo.guardian.name || 'incomplete' }}</span></div>
+    
+ 
+      <div class="col-xs-4">Father's number: <span editable-number="personalInfo.father.number" e-required>{{ personalInfo.father.number || 'incomplete' }}</span></div>
+      <div class="col-xs-4">Mother's number: <span editable-number="personalInfo.mother.number" e-required>{{ personalInfo.mother.number || 'incomplete' }}</span></div>
+      <div class="col-xs-4">Guardian's' number: <span editable-text="personalInfo.guardian.name">{{ personalInfo.guardian.name || 'incomplete' }}</span></div>
+  
+
+      <div class="col-xs-4">Father's ID/PASSPORT #: <span editable-number="personalInfo.father.id" e-required>{{ personalInfo.father.id || 'incomplete' }}</span></div>
+      <div class="col-xs-4">Mother's ID/PASSPORT #: <span editable-number="personalInfo.mother.id" e-required>{{ personalInfo.mother.id || 'incomplete' }}</span></div>
+      <div class="col-xs-4">Guardian's' ID/PASSPORT #: <span editable-text="personalInfo.guardian.id">{{ personalInfo.guardian.id || 'incomplete' }}</span></div>
+  
+</div>
+  
+</div>
+
+
+
+
+
+<div class="panel panel-success">
+  <div class="panel-heading"><strong>SECTION 5:</strong> Academic History</div>
+  <div class="panel-body" style="padding: 2%">
+<table class="table table-condensed">
+
+  <thead class="inverse">
+    <tr>
+      <th>School Name</th>
+      <th>Department</th>
+      <th>Grade</th>
+      <th>Aggregate</th>
+      <th>Exam Authority</th>
+    </tr>
+  </thead>
+  <tr ng-repeat="academic in personalInfo.academics">
+    <td>
+      <!-- editable username (text with validation) -->
+      <span editable-text="academic.name" e-name="name" e-form="rowform">
+          {{ academic.name || 'empty' }}
+        </span>
+    </td>
+    <td>
+      <!-- editable status (select-local) -->
+      <span editable-text="academic.dept" e-name="dept" e-form="rowform">
+          {{ academic.dept || 'empty' }}
+        </span>
+    </td>
+
+
+
+    <td>
+      <!-- editable status (select-local) -->
+      <span editable-text="academic.grade" e-name="grade" e-form="rowform">
+          {{ academic.grade || 'empty' }}
+        </span>
+    </td>
+
+    <td>
+      <!-- editable status (select-local) -->
+      <span editable-text="academic.aggregate" e-name="aggregate" e-form="rowform">
+          {{ academic.aggregate || 'empty' }}
+        </span>
+    </td>
+    <td>
+      <!-- editable status (select-local) -->
+      <span editable-text="academic.examAuth" e-name="examAuth" e-form="rowform">
+          {{ academic.examAuth|| 'empty' }}
+        </span>
+    </td>
+    <td style="white-space: nowrap">
+
+
+<div class="buttons" ng-show="!rowform.$visible">
+
+  <button type="button" class="btn btn-danger" ng-click="removeAcademic($index)">del</button>
+</div>
+</td>
+</tr>
+</table>
+
+<button type="button" ng-show="editableForm.$visible" class="btn btn-default" ng-click="addAcademics()">Add Another Institution</button>
+</div>
+</div>
+
+<div class="panel panel-success">
+  <div class="panel-heading"><strong>SECTION 6:</strong> Work Experience</div>
+  <div class="panel-body" style="padding: 2%">
+<table class="table table-condensed">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Organization</th>
+      <th>Nature of Job</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="org in personalInfo.orgs">
+      <td>
+        <!-- editable username (text with validation) -->
+        <span editable-text="org.name" e-name="name" e-form="rowform" e-required>
+          {{ org.name || 'empty' }}
+        </span>
+      </td>
+      <td>
+        <!-- editable status (select-local) -->
+        <span editable-text="org.description" e-name="description" e-form="rowform" e-required>
+          {{ org.description || 'empty' }}
+        </span>
+      </td>
+
+
+
+      <td>
+        <!-- editable status (select-local) -->
+        <span editable-text="org.start" e-name="start" e-form="rowform" e-pattern="\d{2}/\d{2}/\d{4}" e-title="start" e-placeholder="dd/mm/yyyy" e-required>
+          {{ (org.start | date) || 'empty' }}
+        </span>
+      </td>
+
+      <td>
+        <!-- editable status (select-local) -->
+        <span editable-text="org.end" e-name="end" e-form="rowform" e-pattern="\d{2}/\d{2}/\d{4}" e-title="end" e-placeholder="dd/mm/yyyy" e-required>
+          {{ (org.end | date) || 'empty' }}
+        </span>
+      </td>
+
+      <td style="white-space: nowrap">
+<!-- form -->
+
+<div class="buttons" ng-show="!rowform.$visible">
+
+  <button type="button" class="btn btn-danger" ng-click="removeOrg($index)">del</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+
+<button type="button" ng-show="editableForm.$visible" class="btn btn-default" ng-click="addOrg()">Add Another Job</button>
+</div>
+</div>
+
+
+<div class="panel panel-success">
+  <div class="panel-heading"><strong>SECTION 7:</strong> Refferees</div>
+  <div class="panel-body" style="padding: 2%">
+<table class="table table-condensed">
+  <thead class="inverse">
+    <tr>
+
+      <th>Name</th>
+      <th>Occupation</th>
+
+      <th>Telephone</th>
+      <th>Email</th>
+
+    </tr>
+  </thead>
+  <tr ng-repeat="ref in personalInfo.refs">
+    <td>
+      <!-- editable username (text with validation) -->
+      <span editable-text="ref.name" e-name="name" e-form="rowform">
+          {{ ref.name || 'empty' }}
+        </span>
+    </td>
+    <td>
+      <!-- editable status (select-local) -->
+      <span editable-text="ref.occupation" e-name="occupation" e-form="rowform">
+          {{ ref.occupation || 'empty' }}
+        </span>
+    </td>
+
+
+
+    <td>
+      <!-- editable status (select-local) -->
+      <span editable-number="ref.tel" e-name="tel" e-form="rowform">
+          {{ ref.tel || 'empty' }}
+        </span>
+    </td>
+
+    <td>
+      <!-- editable status (select-local) -->
+      <span editable-email="ref.email" e-name="email" e-form="rowform">
+          {{ ref.email || 'empty' }}
+        </span>
+    </td>
+
+    <td style="white-space: nowrap">
+<!-- form -->
+
+<div class="buttons" ng-show="!rowform.$visible">
+
+  <button type="button" class="btn btn-danger" ng-click="removeRef($index)">del</button>
+</div>
+</td>
+</tr>
+</table>
+
+<button ng-show="editableForm.$visible" type="button" class="btn btn-default" ng-click="addRef()">Add Another Refferee</button>
+</div>
+</div>
+</div>
+</form>

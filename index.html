@@ -1,20 +1,188 @@
 <!DOCTYPE html>
-<html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("p").click(function(){
-        $(this).hide();
-    });
-});
-</script>
-</head>
-<body>
+<html lang="en" ng-app="iprceast">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-<p>If you click on me, I will disappear.</p>
-<p>Click me away!</p>
-<p>Click me too!</p>
+    <title>IPRC-East</title>
 
-</body>
+    <!-- Bootstrap core CSS -->
+    <link href="public/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="public/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="public/css/jambotron.css" rel="stylesheet">
+
+  </head>  
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="topNav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a ui-sref="home" class="navbar-brand" >IPRC-East</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+        <!--<li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>-->
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Academics <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="collegeOfTechnology">College of Technology</a></li>
+            <li><a ui-sref="tss">Technical Secondary School</a></li>
+            <li><a href="#">Vocational Technical Training</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="collegeOfTechnology">College of Technology</a></li>
+            <li><a ui-sref="tss">Technical Secondary School</a></li>
+            <li><a ui-sref="vtc">Vocational Technical Training</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admission<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="login">Login</a></li>
+            <li><a ui-sref="main">Apply to Advanced Diploma Program</a></li>
+            <li><a ui-sref="appForm">Apply Now!</a></li>
+             <li><a ui-sref="test">test!</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Upload Your Documents</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Complete Your Payment stuff</a></li>
+          </ul>
+        </li>
+      </ul>
+        <div class="col-sm-3 col-md-3">
+        <form class="navbar-form" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Type Your Searc keyword" name="srch-term" id="srch-term" style="width: 300px;">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></i>Go</button>
+            </div>
+        </div>
+        </form>
+        
+        </div>
+<!--
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Login</button>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>-->
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav> 
+    <hr>
+              <div class="container">
+                  <div ui-view></div>
+              </div>
+
+
+    <footer>
+          <div class="row">
+        <div class="col-md-3">
+          <h4>Quick Links</h4>
+         <p>
+         <ul>
+           <li>  
+             <a href="">wda.gov.rw</a>
+           </li>
+            <li>  
+             <a href="">mineduc.gov.rw</a>
+           </li>
+            <li>  
+             <a href="">mifotra.gov.rw</a>
+           </li>
+            <li>  
+             <a href="">College Services</a>
+           </li>
+         </ul></p>
+        </div>
+        <div class="col-md-3">
+          <h4>Academics</h4>
+         <p>
+         <ul>
+          <li> 
+             <a href=""> Academic Calendar</a>
+           </li>
+           <li>  
+             <a href="">IPRC East Online Application</a>
+           </li>
+            <li>  
+             <a href="">Student Life</a>
+           </li>
+            <li>  
+             <a href="">Facilities</a>
+           </li>
+         </ul></p>
+       </div>
+        <div class="col-md-3">
+          <h4>More about IPRC East</h4>
+          <p>
+         <ul>
+           <li>  
+             <a href="">College of Technology</a>
+           </li>
+            <li>  
+             <a href="">Technical Secondary School</a>
+           </li>
+            <li>  
+             <a href="">Vocational Training</a>
+           </li>
+         </ul></p>
+        </div>
+                <div class="col-md-3">
+          <h4>Connect with us on</h4>
+         <p>
+         <ul>
+           <li>  
+             <a href="https://www.facebook.com/">Facebook</a>
+           </li>
+            <li>  
+             <a href="https://twitter.com/">Twitter</a>
+           </li>
+            <li>  
+             <a href="https://www.google.rw/?gws_rd=cr&ei=DykGWaeHNIv7UMqOv-gI">Google+</a>
+           </li>
+         </ul></p>
+         
+        </div>
+      </div><hr>
+        <p style="text-align: center;background-color: #000;color: #fff;height: 100px;text-transform: uppercase;text-align-last: center;">&copy; 2017 IPRC-East, Inc.</p>
+         </footer>
+ <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="public/js/angular.min.js"></script>
+    <script src="public/js/angular-ui-router.js"></script>
+    <script src="public/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <script src="public/js/app.js"></script>
+  </body>
 </html>
