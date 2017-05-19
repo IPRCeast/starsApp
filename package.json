@@ -1,23 +1,15 @@
 {
-  "name": "starsApp",
+  "name": "studentproject",
   "version": "1.0.0",
-  "description": "Repository for Stars App",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IPRCeast/starsApp.git"
-  },
-  "keywords": [],
-  "author": "",
+  "author": "gervais",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/IPRCeast/starsApp/issues"
-  },
-  "homepage": "https://github.com/IPRCeast/starsApp#readme",
   "dependencies": {
-    "express": "^4.14.1"
+    "express": "^4.15.3",
+    "nodemailer": "^4.0.1"
   }
 }
